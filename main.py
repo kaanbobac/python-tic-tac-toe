@@ -1,19 +1,19 @@
 gameTable = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 possibleMoves = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+player_no = 1
 
-
-def play(player):
-    next_move = get_move(player)
+def play():
+    next_move = get_move()
     move(next_move[0], next_move[1])
 
 
-def get_move(player_no):
-    position = get_position(player_no)
-    item = get_item(player_no)
+def get_move():
+    position = get_position()
+    item = get_item()
     return position, item
 
 
-def get_item(player_no):
+def get_item():
     while True:
         item = input('Player{} please enter your next item'.format(player_no))
         if is_proper_item(item):
@@ -23,7 +23,7 @@ def get_item(player_no):
     return item
 
 
-def get_position(player_no):
+def get_position():
     while True:
         try:
             position = int(input('Player{} please enter your next item position'.format(player_no)))
@@ -94,11 +94,10 @@ def is_cross_match():
 
 def start():
     display_welcome_message()
-    player = 1
     while not is_finished():
         display(gameTable)
-        play(player)
-        player = change_player(player)
+        play()
+        change_player()
     print('Game is Finished!')
     print('---This is final result----')
     display(gameTable)
@@ -121,8 +120,8 @@ def display_possible_items():
     print('Please make your X or O moves by the following position numbers')
 
 
-def change_player(player):
-    if player == 2:
+def change_player():
+    if player_no == 2:
         return 1
     else:
         return 2
