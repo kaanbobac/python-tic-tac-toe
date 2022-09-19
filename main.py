@@ -1,5 +1,5 @@
-gameTable = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
-possibleMoves = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+gameTable = ['', '', '', '', '', '', '', '', '']
+possibleMoves = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
 def play(player):
@@ -37,8 +37,7 @@ def get_position(player_no):
 
 
 def is_proper_position(position):
-    merged_moves = [item for innerlist in possibleMoves for item in innerlist]
-    for i in merged_moves:
+    for i in possibleMoves:
         if i == position:
             return True
     return False
@@ -52,34 +51,45 @@ def is_proper_item(item):
 
 
 def move(position, item):
-    index = 1
-    for i, row in enumerate(gameTable):
-        for j, col in enumerate(row):
-            if index == position:
-                gameTable[i][j] = item
-                possibleMoves[i][j] = ' '
-            index += 1
+    gameTable[position - 1] = item
+    possibleMoves[position - 1] = ''
 
 
 def display(table):
-    for row in table:
-        formatted_row = '| '
-        for col in row:
-            formatted_row += str(col) + ' | '
-        print(formatted_row)
+    row = ''
+    for index, value in enumerate(table):
+        row += str(value) + ' | '
+        if (index + 1) % 3 == 0:
+            print(row)
+            row = ''
 
 
 def is_finished():
-    for i in range(3):
-        if gameTable[i][0] == gameTable[i][1] and gameTable[i][1] == gameTable[i][2] and gameTable[i][0] != ' ':
+    return is_column_match() or is_row_match() or is_cross_match()
+
+
+def is_column_match():
+    for i in range(0, 3):
+        if gameTable[i] == gameTable[i + 3] and gameTable[i + 3] == gameTable[i + 6] and gameTable[i + 6] != '':
             return True
-        if gameTable[0][i] == gameTable[1][i] and gameTable[1][i] == gameTable[2][i] and gameTable[0][i] != ' ':
-            return True
-    if gameTable[0][0] == gameTable[1][1] and gameTable[2][2] == gameTable[1][1] and gameTable[0][0] != ' ':
-        return True
-    if gameTable[0][2] == gameTable[1][1] and gameTable[2][2] == gameTable[2][0] and gameTable[2][0] != ' ':
-        return True
     return False
+
+
+def is_row_match():
+    row_number = [0, 3, 6]
+    for i in row_number:
+        if gameTable[i] == gameTable[i + 1] and gameTable[i + 1] == gameTable[i + 2] and gameTable[i + 2] != '':
+            return True
+    return False
+
+
+def is_cross_match():
+    if gameTable[0] == gameTable[4] and gameTable[4] == gameTable[8] and gameTable[8] != '':
+        return True
+    if gameTable[2] == gameTable[4] and gameTable[4] == gameTable[6] and gameTable[6] != '':
+        return True
+    else:
+        return False
 
 
 def start():
