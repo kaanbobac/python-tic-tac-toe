@@ -14,18 +14,22 @@ def get_move(player_no):
 
 
 def get_item(player_no):
-    item = input('Player{} please enter your next item'.format(player_no))
-    while not is_proper_item(item):
-        display_possible_items()
+    while True:
         item = input('Player{} please enter your next item'.format(player_no))
+        if is_proper_item(item):
+            break
+        else:
+            display_possible_items()
     return item
 
 
 def get_position(player_no):
-    position = int(input('Player{} please enter your next item position'.format(player_no)))
-    while not is_proper_position(position):
-        display_possible_moves()
+    while True:
         position = int(input('Player{} please enter your next item position'.format(player_no)))
+        if is_proper_position(position):
+            break
+        else:
+            display_possible_moves()
     return position
 
 
