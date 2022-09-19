@@ -1,4 +1,4 @@
-gameTable = ['', '', '', '', '', '', '', '', '']
+gameTable = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 possibleMoves = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
@@ -70,7 +70,7 @@ def is_finished():
 
 def is_column_match():
     for i in range(0, 3):
-        if gameTable[i] == gameTable[i + 3] and gameTable[i + 3] == gameTable[i + 6] and gameTable[i + 6] != '':
+        if gameTable[i] == gameTable[i + 3] and gameTable[i + 3] == gameTable[i + 6] and gameTable[i + 6] != ' ':
             return True
     return False
 
@@ -78,15 +78,15 @@ def is_column_match():
 def is_row_match():
     row_number = [0, 3, 6]
     for i in row_number:
-        if gameTable[i] == gameTable[i + 1] and gameTable[i + 1] == gameTable[i + 2] and gameTable[i + 2] != '':
+        if gameTable[i] == gameTable[i + 1] and gameTable[i + 1] == gameTable[i + 2] and gameTable[i + 2] != ' ':
             return True
     return False
 
 
 def is_cross_match():
-    if gameTable[0] == gameTable[4] and gameTable[4] == gameTable[8] and gameTable[8] != '':
+    if gameTable[0] == gameTable[4] and gameTable[4] == gameTable[8] and gameTable[8] != ' ':
         return True
-    if gameTable[2] == gameTable[4] and gameTable[4] == gameTable[6] and gameTable[6] != '':
+    if gameTable[2] == gameTable[4] and gameTable[4] == gameTable[6] and gameTable[6] != ' ':
         return True
     else:
         return False
