@@ -25,16 +25,20 @@ def get_item(player_no):
 
 def get_position(player_no):
     while True:
-        position = int(input('Player{} please enter your next item position'.format(player_no)))
-        if is_proper_position(position):
-            break
-        else:
+        try:
+            position = int(input('Player{} please enter your next item position'.format(player_no)))
+            if is_proper_position(position):
+                break
+            else:
+                display_possible_moves()
+        except ValueError:
             display_possible_moves()
     return position
 
 
 def is_proper_position(position):
-    for i in range(10):
+    merged_moves = [item for innerlist in possibleMoves for item in innerlist]
+    for i in merged_moves:
         if i == position:
             return True
     return False
@@ -47,12 +51,12 @@ def is_proper_item(item):
         return False
 
 
-def move(position, move):
+def move(position, item):
     index = 1
     for i, row in enumerate(gameTable):
-        for j, row in enumerate(row):
+        for j, col in enumerate(row):
             if index == position:
-                gameTable[i][j] = move
+                gameTable[i][j] = item
                 possibleMoves[i][j] = ' '
             index += 1
 
@@ -60,8 +64,8 @@ def move(position, move):
 def display(table):
     for row in table:
         formatted_row = '| '
-        for move in row:
-            formatted_row += str(move) + ' | '
+        for col in row:
+            formatted_row += str(col) + ' | '
         print(formatted_row)
 
 
