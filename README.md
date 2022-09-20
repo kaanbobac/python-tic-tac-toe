@@ -5,8 +5,14 @@ To get more information about Tic Tac Toe game, please click [here](https://www.
 >This game is developed by only pure Pyhton 3 without any additional library. In order to run it, only python 3 installation will be enough
 
 # How to Play
-Game is played by two people. 
-Every player makes move by **X** or **O** moves.
+ - Game is played by two people.
+ - Every player makes move by **X** or **O** moves.
+ - There are three possible situations for win:
+   - Row Match 
+   - Column Match
+   - Diagnose match
+ - If game is over, replay is possible
+
 
 
 ## Game Insights
