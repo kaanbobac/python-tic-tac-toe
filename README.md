@@ -13,7 +13,7 @@ Every player makes move by **X** or **O** moves.
 
 #### 1. Welcome:
 
-![](.\resource\markdown\game_insights\welcome.png)
+![](./resource/markdown/game_insights/welcome.png)
 
 
 #### 2. Player moves:
