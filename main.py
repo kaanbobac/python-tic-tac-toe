@@ -1,8 +1,12 @@
+DEFAULT_PLACEHOLDER = ' '
+POSSIBLE_MARKERS = ['X', 'O']
+REPLAY = "R"
+PLAYER_NO = [1,2]
 def main():
     is_game_on = True
     while is_game_on:
         game_table = [' '] * 10
-        player_no = 1
+        player_no = PLAYER_NO[1]
         game_table = start(player_no, game_table)
         print('Game is Over!')
         print('---This is the final result----')
@@ -11,16 +15,13 @@ def main():
 
 
 def is_replay():
-    replay = input("Please press R for replay!").upper()
-    if replay == "R":
-        return True
-    else:
-        return False
+    choice = input("Please press {} for replay!".format(REPLAY)).upper()
+    return True if choice == REPLAY else False
 
 
 def start(player_no, game_table):
     display_welcome_message()
-    display_possible_items()
+    display_possible_markers()
     display_possible_positions()
     while not is_finished(game_table):
         display(game_table)
@@ -35,23 +36,20 @@ def display_welcome_message():
     print('***************************')
 
 
-def display_possible_items():
-    print('Please make your X or O move')
+def display_possible_markers():
+    print('Please make your {} or {} move'.format(POSSIBLE_MARKERS[0], POSSIBLE_MARKERS[1]))
     print('***************************')
 
 
 def display_possible_positions():
     possible_moves = range(1, 10)
-    print('Please select your next move position numbers')
+    print('Please select your next move position number from the table:')
     display(possible_moves)
     print('***************************')
 
 
 def change_player(player_no):
-    if player_no == 2:
-        return 1
-    else:
-        return 2
+    return PLAYER_NO[0] if player_no == PLAYER_NO[1] else PLAYER_NO[1]
 
 
 def play(player_no, game_table):
@@ -61,24 +59,24 @@ def play(player_no, game_table):
 
 def get_move(player_no, game_table):
     position = get_position(player_no, game_table)
-    item = get_item(player_no)
-    return position, item
+    marker = get_marker(player_no)
+    return position, marker
 
 
-def get_item(player_no):
+def get_marker(player_no):
     while True:
-        item = input('Player{} please enter your next item'.format(player_no))
-        if is_proper_item(item):
+        item = input('Player{} please enter your next marker'.format(player_no))
+        if is_proper_marker(item):
             break
         else:
-            display_possible_items()
+            display_possible_markers()
     return item
 
 
 def get_position(player_no, game_table):
     while True:
         try:
-            position = int(input('Player{} please enter your next item position'.format(player_no)))
+            position = int(input('Player{} please enter your next marker position'.format(player_no)))
             if is_proper_position(position, game_table):
                 break
             else:
@@ -90,16 +88,13 @@ def get_position(player_no, game_table):
 
 def is_proper_position(position, game_table):
     for i in range(1, 10):
-        if i == position and game_table[i - 1] == ' ':
+        if i == position and game_table[i - 1] == DEFAULT_PLACEHOLDER:
             return True
     return False
 
 
-def is_proper_item(item):
-    if item == 'X' or item == 'O':
-        return True
-    else:
-        return False
+def is_proper_marker(item):
+    return True if item in POSSIBLE_MARKERS else False
 
 
 def move(game_table, next_move):
@@ -125,14 +120,14 @@ def is_finished(game_table):
 
 def is_board_full(game_table):
     for place in game_table:
-        if place == ' ':
+        if place == DEFAULT_PLACEHOLDER:
             return False
     return True
 
 
 def is_column_match(game_table):
     for i in range(0, 3):
-        if game_table[i] == game_table[i + 3] and game_table[i + 3] == game_table[i + 6] and game_table[i + 6] != ' ':
+        if game_table[i] == game_table[i + 3] == game_table[i + 6] and game_table[i + 6] != DEFAULT_PLACEHOLDER:
             return True
     return False
 
@@ -140,15 +135,15 @@ def is_column_match(game_table):
 def is_row_match(game_table):
     row_number = [0, 3, 6]
     for i in row_number:
-        if game_table[i] == game_table[i + 1] and game_table[i + 1] == game_table[i + 2] and game_table[i + 2] != ' ':
+        if game_table[i] == game_table[i + 1] == game_table[i + 2] and game_table[i + 2] != DEFAULT_PLACEHOLDER:
             return True
     return False
 
 
 def is_cross_match(game_table):
-    if game_table[0] == game_table[4] and game_table[4] == game_table[8] and game_table[8] != ' ':
+    if game_table[0] == game_table[4] == game_table[8] and game_table[8] != DEFAULT_PLACEHOLDER:
         return True
-    if game_table[2] == game_table[4] and game_table[4] == game_table[6] and game_table[6] != ' ':
+    if game_table[2] == game_table[4] == game_table[6] and game_table[6] != DEFAULT_PLACEHOLDER:
         return True
     else:
         return False
