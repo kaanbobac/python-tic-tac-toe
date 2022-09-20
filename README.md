@@ -18,11 +18,11 @@ Every player makes move by **X** or **O** moves.
 
 #### 2. Player moves:
 
-![](.\resource\markdown\game_insights\move.png)
+![](./resource/markdown/game_insights/move.png)
 
 
 #### 3. Player wins:
 
-![](.\resource\markdown\game_insights\win.png)
+![](./resource/markdown/game_insights/win.png)
 
 
