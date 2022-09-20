@@ -1,11 +1,66 @@
+def main():
+    is_game_on = True
+    while is_game_on:
+        game_table = [' '] * 10
+        player_no = 1
+        game_table = start(player_no, game_table)
+        print('Game is Over!')
+        print('---This is the final result----')
+        display(game_table)
+        is_game_on = is_replay()
 
-def play(player_no,game_table):
-    next_move = get_move(player_no,game_table)
+
+def is_replay():
+    replay = input("Please press R for replay!").upper()
+    if replay == "R":
+        return True
+    else:
+        return False
+
+
+def start(player_no, game_table):
+    display_welcome_message()
+    display_possible_items()
+    display_possible_positions()
+    while not is_finished(game_table):
+        display(game_table)
+        game_table = play(player_no, game_table)
+        player_no = change_player(player_no)
+    return game_table
+
+
+def display_welcome_message():
+    print('***************************')
+    print('Welcome to TIC TAC TOE Game')
+    print('***************************')
+
+
+def display_possible_items():
+    print('Please make your X or O move')
+    print('***************************')
+
+
+def display_possible_positions():
+    possible_moves = range(1, 10)
+    print('Please select your next move position numbers')
+    display(possible_moves)
+    print('***************************')
+
+
+def change_player(player_no):
+    if player_no == 2:
+        return 1
+    else:
+        return 2
+
+
+def play(player_no, game_table):
+    next_move = get_move(player_no, game_table)
     return move(game_table, next_move)
 
 
-def get_move(player_no,game_table):
-    position = get_position(player_no,game_table)
+def get_move(player_no, game_table):
+    position = get_position(player_no, game_table)
     item = get_item(player_no)
     return position, item
 
@@ -20,7 +75,7 @@ def get_item(player_no):
     return item
 
 
-def get_position(player_no,game_table):
+def get_position(player_no, game_table):
     while True:
         try:
             position = int(input('Player{} please enter your next item position'.format(player_no)))
@@ -99,42 +154,4 @@ def is_cross_match(game_table):
         return False
 
 
-def start():
-    game_table = [' '] * 10
-    player_no = 1
-    display_welcome_message()
-    display_possible_items()
-    display_possible_positions()
-    while not is_finished(game_table):
-        display(game_table)
-        game_table = play(player_no,game_table)
-        player_no = change_player(player_no)
-    print('Game is Over!')
-    print('---This is the final result----')
-    display(game_table)
-
-
-def display_welcome_message():
-    print('***************************')
-    print('Welcome to TIC TAC TOE Game')
-    print('***************************')
-
-
-def display_possible_items():
-    print('Please make your X or O move')
-    print('***************************')
-
-def display_possible_positions():
-    possible_moves = range(1, 10)
-    print('Please select your next move position numbers')
-    display(possible_moves)
-    print('***************************')
-
-def change_player(player_no):
-    if player_no == 2:
-        return 1
-    else:
-        return 2
-
-
-start()
+main()
