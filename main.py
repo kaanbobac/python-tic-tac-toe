@@ -5,12 +5,10 @@ PLAYER_NO = [1,2]
 def main():
     is_game_on = True
     while is_game_on:
-        game_table = [' '] * 10
-        player_no = PLAYER_NO[1]
-        game_table = start(player_no, game_table)
+        final_result = play_the_game()
         print('Game is Over!')
         print('---This is the final result----')
-        display(game_table)
+        display(final_result)
         is_game_on = is_replay()
 
 
@@ -19,7 +17,9 @@ def is_replay():
     return True if choice == REPLAY else False
 
 
-def start(player_no, game_table):
+def play_the_game():
+    game_table = [DEFAULT_PLACEHOLDER] * 9
+    player_no = PLAYER_NO[0]
     display_welcome_message()
     display_possible_markers()
     display_possible_positions()
