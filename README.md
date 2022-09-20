@@ -1,2 +1,28 @@
-# python-tic-tac-toe
-A Self Study Tic Tac Toe Project in Pyhton
+# Tic Tac Toe Console Game!
+This is a console Tic Tac Toe game developed in python.
+To get more information about Tic Tac Toe game, please click [here](https://www.wikiwand.com/en/Tic-tac-toe)
+
+>This game is developed by only pure Pyhton 3 without any additional library. In order to run it, only python 3 installation will be enough
+
+# How to Play
+Game is played by two people. 
+Every player makes move by **X** or **O** moves.
+
+
+## Game Insights
+
+#### 1. Welcome:
+
+![](C:\Users\betul\PycharmProjects\pythonProject\resource\markdown\game_insights\welcome.png)
+
+
+#### 2. Player moves:
+
+![](C:\Users\betul\PycharmProjects\pythonProject\resource\markdown\game_insights\move.png)
+
+
+#### 3. Player wins:
+
+![](C:\Users\betul\PycharmProjects\pythonProject\resource\markdown\game_insights\win.png)
+
+
