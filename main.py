@@ -1,4 +1,4 @@
-gameTable = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+gameTable = [' ']*10
 possibleMoves = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 player_no = 1
 
@@ -65,9 +65,14 @@ def display(table):
 
 
 def is_finished():
-    return is_column_match() or is_row_match() or is_cross_match()
+    return is_board_full() or is_column_match() or is_row_match() or is_cross_match()
 
 
+def is_board_full():
+    for move in possibleMoves:
+        if move != '':
+            return False
+    return True
 def is_column_match():
     for i in range(0, 3):
         if gameTable[i] == gameTable[i + 3] and gameTable[i + 3] == gameTable[i + 6] and gameTable[i + 6] != ' ':
@@ -98,7 +103,7 @@ def start():
         display(gameTable)
         play()
         change_player()
-    print('Game is Finished!')
+    print('Game is Over!')
     print('---This is final result----')
     display(gameTable)
 
