@@ -31,4 +31,6 @@ To get more information about Tic Tac Toe game, please click [here](https://www.
 
 ![](./resource/markdown/game_insights/win.png)
 
+#### 4. Game ends without win:
 
+![](./resource/markdown/game_insights/full_board.png)
