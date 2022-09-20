@@ -13,16 +13,16 @@ Every player makes move by **X** or **O** moves.
 
 #### 1. Welcome:
 
-![](C:\Users\betul\PycharmProjects\pythonProject\resource\markdown\game_insights\welcome.png)
+![](.\resource\markdown\game_insights\welcome.png)
 
 
 #### 2. Player moves:
 
-![](C:\Users\betul\PycharmProjects\pythonProject\resource\markdown\game_insights\move.png)
+![](.\resource\markdown\game_insights\move.png)
 
 
 #### 3. Player wins:
 
-![](C:\Users\betul\PycharmProjects\pythonProject\resource\markdown\game_insights\win.png)
+![](.\resource\markdown\game_insights\win.png)
 
 
