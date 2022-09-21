@@ -2,7 +2,7 @@
 This is a console Tic Tac Toe game developed in python.
 To get more information about Tic Tac Toe game, please click [here](https://www.wikiwand.com/en/Tic-tac-toe)
 
->This game is developed by only pure Pyhton 3 without any additional library. In order to run it, only python 3 installation will be enough
+>This game is developed by only pure Python 3 without any additional library. In order to run it, only python 3 installation will be enough
 
 # How to Play
  - Game is played by two people.

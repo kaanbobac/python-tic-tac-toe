@@ -1,7 +1,9 @@
 DEFAULT_PLACEHOLDER = ' '
 POSSIBLE_MARKERS = ['X', 'O']
 REPLAY = "R"
-PLAYER_NO = [1,2]
+PLAYER_NO = [1, 2]
+
+
 def main():
     is_game_on = True
     while is_game_on:
