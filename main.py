@@ -151,4 +151,5 @@ def is_cross_match(game_table):
         return False
 
 
-main()
+if __name__ == "__main__":
+    main()
