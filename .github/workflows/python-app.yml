@@ -36,7 +36,14 @@ jobs:
     - name: Static Check
       run: |
         pylint $(git ls-files '*.py')
-        
+    - name: Build coverage file
+      run: |
+        pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=app tests/ | tee pytest-coverage.txt
+    - name: Pytest coverage comment
+      uses: MishaKav/pytest-coverage-comment@main
+      with:
+        pytest-coverage-path: ./pytest-coverage.txt
+        junitxml-path: ./pytest.xml
     - name: Pytest coverage comment
       id: coverageComment
       uses: MishaKav/pytest-coverage-comment@main
