@@ -1,3 +1,4 @@
+[![Pylint](https://github.com/kaanbobac/python-tic-tac-toe/actions/workflows/pylint.yml/badge.svg?branch=master)](https://github.com/kaanbobac/python-tic-tac-toe/actions/workflows/pylint.yml)
 # Tic Tac Toe Console Game!
 This is a console Tic Tac Toe game developed in python.
 To get more information about Tic Tac Toe game, please click [here](https://www.wikiwand.com/en/Tic-tac-toe)
