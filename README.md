@@ -1,5 +1,5 @@
 [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-360/)
-[![Python application](https://github.com/kaanbobac/python-tic-tac-toe/actions/workflows/python-app.yml/badge.svg)](https://github.com/kaanbobac/python-tic-tac-toe/actions/workflows/python-app.yml)
+[![Python application](https://github.com/kaanbobac/python-tic-tac-toe/actions/workflows/ci.yml/badge.svg)](https://github.com/kaanbobac/python-tic-tac-toe/actions/workflows/python-app.yml)
 # Tic Tac Toe Console Game!
 This is a console Tic Tac Toe game developed in python.
 To get more information about Tic Tac Toe game, please click [here](https://www.wikiwand.com/en/Tic-tac-toe)
