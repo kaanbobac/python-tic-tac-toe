@@ -28,9 +28,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install pylint
         pip install pytest
+        pip install pytest-cov
     - name: Test
       run: |
-        pytest
+        pytest --exitfirst --verbose --failed-first \
+        --cov=. --cov-report html
     - name: Static Check
       run: |
         pylint $(git ls-files '*.py')
