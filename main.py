@@ -15,8 +15,8 @@ def main():
 
 
 def is_replay():
-    choice = input("Please press {} for replay!".format(REPLAY)).upper()
-    return True if choice == REPLAY else False
+    choice = input(f"Please press {REPLAY} for replay!").upper()
+    return choice == REPLAY
 
 
 def play_the_game():
@@ -39,7 +39,7 @@ def display_welcome_message():
 
 
 def display_possible_markers():
-    print('Please make your {} or {} move'.format(POSSIBLE_MARKERS[0], POSSIBLE_MARKERS[1]))
+    print(f'Please make your {POSSIBLE_MARKERS[0]} or {POSSIBLE_MARKERS[1]} move')
     print('***************************')
 
 
@@ -67,24 +67,22 @@ def get_move(player_no, game_table):
 
 def get_marker(player_no):
     while True:
-        item = input('Player{} please enter your next marker'.format(player_no))
+        item = input(f'Player{player_no} please enter your next marker')
         if is_proper_marker(item):
             break
-        else:
-            display_possible_markers()
+        display_possible_markers()
     return item
 
 
 def get_position(player_no, game_table):
     while True:
         try:
-            position = int(input('Player{} please enter your next marker position'.format(player_no)))
+            position = int(input(f'Player{player_no} please enter your next marker position'))
             if is_proper_position(position, game_table):
                 break
-            else:
-                display_possible_positions()
         except ValueError:
-            display_possible_positions()
+            print("You have entered a non-numeric value. Please enter a numeric value!")
+        display_possible_positions()
     return position
 
 
@@ -96,7 +94,7 @@ def is_proper_position(position, game_table):
 
 
 def is_proper_marker(item):
-    return True if item in POSSIBLE_MARKERS else False
+    return item in POSSIBLE_MARKERS
 
 
 def move(game_table, next_move):
@@ -143,12 +141,9 @@ def is_row_match(game_table):
 
 
 def is_cross_match(game_table):
-    if game_table[0] == game_table[4] == game_table[8] and game_table[8] != DEFAULT_PLACEHOLDER:
-        return True
-    if game_table[2] == game_table[4] == game_table[6] and game_table[6] != DEFAULT_PLACEHOLDER:
-        return True
-    else:
-        return False
+    is_diaognose1_match = game_table[0] == game_table[4] == game_table[8] and game_table[8] != DEFAULT_PLACEHOLDER
+    is_diaognose2_match = game_table[2] == game_table[4] == game_table[6] and game_table[6] != DEFAULT_PLACEHOLDER
+    return is_diaognose1_match or is_diaognose2_match
 
 
 if __name__ == "__main__":
