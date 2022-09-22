@@ -114,8 +114,8 @@ def display(table):
 
 
 def is_finished(game_table):
-    return is_board_full(game_table) or is_column_match(game_table) or is_row_match(game_table) or is_cross_match(
-        game_table)
+    return is_board_full(game_table) or is_column_match(game_table) \
+           or is_row_match(game_table) or is_cross_match(game_table)
 
 
 def is_board_full(game_table):
@@ -127,7 +127,8 @@ def is_board_full(game_table):
 
 def is_column_match(game_table):
     for i in range(0, 3):
-        if game_table[i] == game_table[i + 3] == game_table[i + 6] and game_table[i + 6] != DEFAULT_PLACEHOLDER:
+        if game_table[i] == game_table[i + 3] == game_table[i + 6] \
+                and game_table[i + 6] != DEFAULT_PLACEHOLDER:
             return True
     return False
 
@@ -135,14 +136,17 @@ def is_column_match(game_table):
 def is_row_match(game_table):
     row_number = [0, 3, 6]
     for i in row_number:
-        if game_table[i] == game_table[i + 1] == game_table[i + 2] and game_table[i + 2] != DEFAULT_PLACEHOLDER:
+        if game_table[i] == game_table[i + 1] == game_table[i + 2] \
+                and game_table[i + 2] != DEFAULT_PLACEHOLDER:
             return True
     return False
 
 
 def is_cross_match(game_table):
-    is_diaognose1_match = game_table[0] == game_table[4] == game_table[8] and game_table[8] != DEFAULT_PLACEHOLDER
-    is_diaognose2_match = game_table[2] == game_table[4] == game_table[6] and game_table[6] != DEFAULT_PLACEHOLDER
+    is_diaognose1_match = game_table[0] == game_table[4] == game_table[8] \
+                          and game_table[8] != DEFAULT_PLACEHOLDER
+    is_diaognose2_match = game_table[2] == game_table[4] == game_table[6] \
+                          and game_table[6] != DEFAULT_PLACEHOLDER
     return is_diaognose1_match or is_diaognose2_match
 
 
